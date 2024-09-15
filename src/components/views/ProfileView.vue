@@ -1,11 +1,22 @@
 <template>
   <div class="flex flex-row justify-between w-4/6 py-3">
-    <h1>Hello Profile</h1>
+
+    <button type="button" @click="logOut()">Log out</button>
   </div>
 
 </template>
 
-<script>
+<script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const logOut = () => {
+  localStorage.removeItem('name')
+  localStorage.removeItem('email')
+
+  router.push( { path : '/' } )
+}
 
 </script>
 

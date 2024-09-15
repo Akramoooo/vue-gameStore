@@ -8,6 +8,10 @@ export default {
     extend: {
       colors: {
         'red': '#FF0000',
+        'my-green': '#41b441',
+        'yellow': '#FFBF00',
+        'dark-green': '#384e11',
+        'my-blue': '#0000FF'
       },
     },
   },

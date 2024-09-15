@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row justify-between w-4/6 py-3">
-    <MyCartList :cartItems="cartItems"/>
+    <MyCartList :cartItems="cartItems" :delCart="delCart"/>
   </div>
 </template>
 
@@ -13,6 +13,9 @@ const cartItems = ref([]);
 
 const amount = ref(0);
 
+  // const props = defineProps({
+  //   gameCards: Array
+  // })
 
 const getCartItems = async () => {
 
@@ -26,6 +29,16 @@ const getCartItems = async () => {
 
 }
 
+const delCart = async (cart) => {
+  try {
+    await axios.delete(`https://990ae34c5b0f012c.mokky.dev/cart/${cart.id}`)
+    getCartItems();
+    // console.log(props.gameCards);
+  } catch (error) {
+    console.log('Error: ' + error);
+  }
+}
+ 
 
 onMounted(async () => {
   await getCartItems()

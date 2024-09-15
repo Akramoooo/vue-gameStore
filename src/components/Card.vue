@@ -8,10 +8,10 @@
         </div>
         <div class="flex flex-col gap-3">
             <div class="flex flex-row justify-between">
-                <button class="bg-green-500 transition hover:bg-green-400 w-3/6 rounded-md mx-2 hover:scale-95">Купить</button>
+                <button class="bg-slate-300 transition hover:bg-my-green w-3/6 rounded-md mx-2 hover:scale-95">Купить</button>
                 <img :src="isAdded ? 'checked.svg' : 'plus.svg' " @click="props.clickAdded" class="transition cursor-pointer mx-2 " alt="В корзину"/>
             </div>
-            <button class=" transition hover:bg-blue-400 w-60 rounded-2xl p-1">Подробнее</button>
+            <button class="transition hover:bg-blue-400 w-60 rounded-2xl p-1">Подробнее</button>
         </div>
     </div>
 </template>

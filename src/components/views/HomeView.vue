@@ -4,11 +4,10 @@
     <mySearch />
     <CardList :game-cards="gameCards" :click-added="clickAdded"/>
   </div>
-
 </template>
 
 <script setup>
-import { onMounted, provide, ref, watch } from 'vue';
+import { onMounted, provide, ref,  emit} from 'vue';
 import axios from 'axios';
 
 
@@ -16,9 +15,12 @@ import CardList from '../CardList.vue';
 import mySearch from '../mySearch.vue';
 
 
+
 const gameCards = ref([]);
 
 const amount = ref(0);
+
+// emit('gameCards', gameCards)
 
 
 const getGameCards = async () => {
@@ -107,6 +109,24 @@ onMounted(async () => {
   await getGameCards();
 },
 );
+
+// watch(props.removedCart, () => {
+//   gameCards.value = gameCards.value.map(gameCard => {
+//     if (gameCard.id === props.removedCart.ParentId) {
+//       console.log('Success');
+      
+//       return {
+//         ...gameCard,
+//         isAdded: false
+//       }
+//     }
+//     console.log('Success');
+      
+//     return{
+//       gameCard
+//     }
+//   })
+// }, true)
 
 </script>
 
